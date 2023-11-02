@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;/*Brings the content to the center*/
+    background: #252839;
+}
+ul{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+ul li{
+    position: relative;
+    list-style: none; /*removes bullet sign from list*/
+}
+ul li a{
+    font-size: 4em;
+    text-decoration: none; /*removers underline from links*/
+    letter-spacing: 2px;
+    line-height: 1em;
+    text-transform: uppercase; /*converts letter to uppercase*/
+    color: transparent;/*necessary for the effect required in this project*/
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);/*border of text turns white*/
+}
+ul li a::before{
+    content: attr(data-text);/*brightens the border*/
+    position: absolute;  
+    color: var(--clr);/*fills the color declared in the html page for the variable --clr*/
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-right: 8px solid var(--clr);/*the rectangles before words*/
+    -webkit-text-stroke: 1px var(--clr);
+}
+ul li a:hover::before{
+    width: 100%;
+    filter: drop-shadow(0 0 25px var(--clr)); /*the hover effect*/
+}
